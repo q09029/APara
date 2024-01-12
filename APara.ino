@@ -193,7 +193,7 @@ void draw() {
   }
 
   const byte *const boats[] = {BT0, BT1, BT2};
-  draw_static_sprite(boats[boat_pos]);
+  draw_static_sprite((byte*)boats[boat_pos]);
   
   for(byte i=0; i<sizeof(troopers); i++){
     byte trooper = troopers[i];
@@ -201,18 +201,18 @@ void draw() {
     byte track = trooper >> 6;
     byte pos = (trooper >> 3) & 7;
     
-    draw_static_sprite(Tracks[track-1][pos]);
+    draw_static_sprite((byte*)Tracks[track-1][pos]);
   }
   drawScore();
   draw_debug();
   switch (miss) {
     case 3:
-    draw_static_sprite(M3);
+    draw_static_sprite((byte*)M3);
     case 2:
-    draw_static_sprite(M2);
+    draw_static_sprite((byte*)M2);
     case 1:
-    draw_static_sprite(M1);
-    draw_static_sprite(MISS);
+    draw_static_sprite((byte*)M1);
+    draw_static_sprite((byte*)MISS);
   }
 }
 
